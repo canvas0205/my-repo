@@ -1,7 +1,9 @@
 name: Push
+run-name: Run by @${{ github.actor }}
 on: push
 jobs:
   run:
+    name: CONTEXT TEST JOB
     runs-on: ubuntu-latest
     steps:
       - run: echo "${CONTEXT}"
