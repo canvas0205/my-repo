@@ -1,13 +1,9 @@
 name: Push
 on: push
 jobs:
-  print:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv | grep 'LITERAL_'
+      - run: echo "${CONTEXT}"
         env:
-          LITERAL_NULL: ${{ null }}
-          LITERAL_BOOLEAN: ${{ true }}
-          LITERAL_NUMBER: ${{ 1234 }}
-          LITERAL_STRING: ${{ 'Hello' }}
-          LITERAL_OMIT_STRING: World
+          CONTEXT: ${{ toJSON(github) }}
