@@ -1,11 +1,14 @@
-name: Push
-run-name: Run by @${{ github.actor }}
-on: push
+name: Comment
+on: pull_request
 jobs:
   run:
-    name: CONTEXT TEST JOB
+    name: Comment JOB
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
     steps:
-      - run: echo "${CONTEXT}"
+      - uses: actions/checkout@v4
+      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
         env:
-          CONTEXT: ${{ toJSON(github) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
