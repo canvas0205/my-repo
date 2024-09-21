@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: echo "::error::This is an error"
-      - run: echo "::warning::This is an error"
-      - run: echo "::notice::This is an error"
+      - run: echo "## Example Title :rocket:" >> "${GITHUB_STEP_SUMMARY}"
+      - run: echo "- first line" >> "{GITHUB_STEP_SUMMARY}"
+      - run: echo "- second line" >> "{GITHUB_STEP_SUMMARY}"
