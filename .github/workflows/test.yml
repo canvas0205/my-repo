@@ -1,7 +1,5 @@
 name: Static analysis
-on: 
-  pull_request:
-    paths: ['.github/workflows/*.yml', 'github/workflows/*.yaml']
+on: push
 defaults:
   run:
     shell: bash
@@ -13,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: sleep 120
+      - run: echo "::debug::This is a debug log"
